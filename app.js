@@ -9,7 +9,7 @@ const copy = {
   en: {
     skip: 'Skip to content', navWork: 'Work', navLab: 'The lab', navAbout: 'About', navContact: 'Contact',
     heroEyebrow: 'BASED IN CAIRO, EGYPT',
-    heroLine1: 'Abdelrahman', heroLine2: 'Hesham', heroRole: 'AI Engineer & Software Developer',
+    heroLine1: 'Abdelrahman', heroLine2: 'Hesham', heroRole: 'AI Engineer & Software Engineer',
     heroDescription: 'I build web experiences and AI tools, from training the model to the final interface.',
     exploreWork: 'View my work', portraitAlt: 'Portrait of Abdelrahman Hesham',
     workKicker: 'PORTFOLIO', workTitle: 'Selected work',
@@ -275,10 +275,10 @@ Object.assign(copy.ar, { searchWork: 'ابحث عن عمل', galleryHint: 'ال�
 Object.assign(copy.en, {
   navAbout: 'About', navWork: 'Work', navContact: 'Contact',
   heroHello: 'Hello! I’m', heroFirst: 'Abdelrahman', heroLast: 'Hesham',
-  heroRoles: ['AI Engineer', 'Software Developer', 'Data Analyst'], heroRolesText: 'AI Engineer, Software Developer and Data Analyst',
+  heroRoles: ['AI Engineer', 'Software Engineer', 'Data Analyst'], heroRolesText: 'AI Engineer, Software Engineer and Data Analyst',
   heroCta: 'Get in touch', portraitAlt: 'Portrait of Abdelrahman Hesham', viewStory: 'Open the project',
   aboutTitleA: 'About', aboutTitleB: 'me',
-  aboutStatement: 'I’m Abdelrahman Hesham, an AI engineer and software developer. I build practical tools that turn data and ideas into usable applications.',
+  aboutStatement: 'I’m Abdelrahman Hesham, an AI engineer and software engineer. I build practical tools that turn data and ideas into usable applications.',
   aboutParagraph: 'My work spans machine learning, API integration, web and desktop development, and data analysis. I use Codex and Claude Code to support development, with code review and testing throughout. I learn new tools quickly and enjoy turning unfamiliar problems into clear, usable solutions.',
   educationLabel: 'Education', educationValue: 'BSc in Computer Science, Cairo Higher Institute of Engineering & Computer Science',
   basedLabel: 'Based in', basedValue: 'Cairo, Egypt', languagesLabel: 'Languages', languagesValue: 'Arabic · English · German',
@@ -370,7 +370,7 @@ function renderLanguage() {
   html.lang = 'en';
   html.dir = 'ltr';
   const t = copy.en;
-  document.title = 'Abdelrahman Hesham — AI Engineer & Software Developer';
+  document.title = 'Abdelrahman Hesham — AI Engineer & Software Engineer';
   // The English markup is the single source of visible copy; the archived data-i18n keys are no longer rewritten,
   // so the page reads the same with or without this script.
   document.getElementById('case-close').setAttribute('aria-label', t.closeCase);
