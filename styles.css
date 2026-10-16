@@ -75,6 +75,9 @@ input { caret-color: var(--accent); }
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: minmax(0, 1.3fr) var(--char-w) minmax(0, .7fr); column-gap: clamp(24px, 3vw, 48px);
   align-items: center; height: 100svh; min-height: 640px; max-height: 1000px; padding: 0 clamp(24px, 4vw, 64px);
+  /* Reserve a side rail: 24px inset + 44px social target + 20px clear space before the intro.
+     The stacked layout below resets this padding for tablets and phones. */
+  padding-left: 88px;
 }
 .hero-halo {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
