@@ -247,6 +247,22 @@ for (const item of catalogData.items) {
     status: { en: catalogData.labels.en[statusKey], ar: catalogData.labels.ar[statusKey] }
   };
 }
+// Public source links are added after both selected and archived cases exist.
+// Private project source remains private; its case evidence stays available here.
+const publicSourceRepositories = {
+  "talent": "https://github.com/AbdElrhman-Hesham/talentmatch",
+  "talent-bi": "https://github.com/AbdElrhman-Hesham/talentmatch",
+  "interview": "https://github.com/AbdElrhman-Hesham/interview-desk-jonas",
+  "builder": "https://github.com/AbdElrhman-Hesham/thalorix-ai-engine",
+  "star": "https://github.com/AbdElrhman-Hesham/star-storefront",
+  "ic3": "https://github.com/AbdElrhman-Hesham/ic3-spark"
+};
+for (const [key, href] of Object.entries(publicSourceRepositories)) {
+  if (projects[key]) {
+    projects[key].links = [...(projects[key].links || []), { href, label: 'Source on GitHub' }];
+  }
+}
+
 copy.en.facts.artifacts = 'Work files';
 copy.ar.facts.artifacts = 'ملفات العمل';
 
