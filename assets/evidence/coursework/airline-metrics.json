@@ -1,0 +1,60 @@
+{
+  "protocol": "60/20/20 stratified; choose on validation, refit on80%, final candidate test once",
+  "historical_dataset": true,
+  "selection_metric": "macro_f1",
+  "selected_model": "Random forest",
+  "random_state": 42,
+  "split_sizes": {
+    "train": 62342,
+    "validation": 20781,
+    "test": 20781
+  },
+  "validation": {
+    "Logistic regression": {
+      "accuracy": 0.8703142293441124,
+      "balanced_accuracy": 0.8692274483680564,
+      "positive_f1": 0.8519474811844201,
+      "macro_f1": 0.8682871957914908,
+      "roc_auc": 0.9271761196979937,
+      "average_precision": 0.9315041399383788
+    },
+    "Decision tree": {
+      "accuracy": 0.9464414609499061,
+      "balanced_accuracy": 0.9452040910243102,
+      "positive_f1": 0.9380599922088041,
+      "macro_f1": 0.9454424913360385,
+      "roc_auc": 0.9831747779766072,
+      "average_precision": 0.9743331754738043
+    },
+    "Random forest": {
+      "accuracy": 0.9612626918820076,
+      "balanced_accuracy": 0.9591699885932936,
+      "positive_f1": 0.9547676574703602,
+      "macro_f1": 0.9604471571593333,
+      "roc_auc": 0.9940799467158945,
+      "average_precision": 0.9931061280911322
+    }
+  },
+  "test": {
+    "accuracy": 0.9626581973918483,
+    "balanced_accuracy": 0.9612766929755208,
+    "positive_f1": 0.956652887945481,
+    "macro_f1": 0.9619274583429857,
+    "roc_auc": 0.9942998341802863,
+    "average_precision": 0.9931913229253451
+  },
+  "prior_baseline_test": {
+    "accuracy": 0.5666714787546316,
+    "balanced_accuracy": 0.5,
+    "positive_f1": 0.0,
+    "macro_f1": 0.3617040882145161,
+    "roc_auc": 0.5,
+    "average_precision": 0.43332852124536836
+  },
+  "limits": [
+    "Historical EDA/dataset reuse; not a new independent benchmark.",
+    "Random row split does not establish temporal or external generalisation."
+  ],
+  "execution_seconds": 20.77,
+  "execution_scope": "Only two revised modelling cells; preceding EDA outputs historical."
+}

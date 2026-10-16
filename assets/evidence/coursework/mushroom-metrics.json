@@ -1,0 +1,76 @@
+{
+  "protocol": "60/20/20 stratified; choose on validation, refit on80%, final candidate test once",
+  "historical_dataset": true,
+  "selection_metric": "macro_f1",
+  "selected_model": "Logistic regression",
+  "random_state": 42,
+  "split_sizes": {
+    "train": 4874,
+    "validation": 1625,
+    "test": 1625
+  },
+  "validation": {
+    "Logistic regression": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "positive_f1": 1.0,
+      "macro_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "Decision tree": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "positive_f1": 1.0,
+      "macro_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "Random forest": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "positive_f1": 1.0,
+      "macro_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "KNN": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "positive_f1": 1.0,
+      "macro_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "SVM": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "positive_f1": 1.0,
+      "macro_f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    }
+  },
+  "test": {
+    "accuracy": 0.9993846153846154,
+    "balanced_accuracy": 0.9993614303959131,
+    "positive_f1": 0.9993610223642172,
+    "macro_f1": 0.999383775277064,
+    "roc_auc": 1.0,
+    "average_precision": 1.0
+  },
+  "prior_baseline_test": {
+    "accuracy": 0.5181538461538462,
+    "balanced_accuracy": 0.5,
+    "positive_f1": 0.0,
+    "macro_f1": 0.341305229023105,
+    "roc_auc": 0.5,
+    "average_precision": 0.48184615384615387
+  },
+  "limits": [
+    "Historical EDA/dataset reuse; not a new independent benchmark.",
+    "Random row split does not establish temporal or external generalisation."
+  ],
+  "execution_seconds": 10.43,
+  "execution_scope": "Only two revised modelling cells; preceding EDA outputs historical."
+}

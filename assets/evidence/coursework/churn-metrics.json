@@ -1,0 +1,76 @@
+{
+  "protocol": "60/20/20 stratified; choose on validation, refit on80%, final candidate test once",
+  "historical_dataset": true,
+  "selection_metric": "macro_f1",
+  "selected_model": "Random forest",
+  "random_state": 42,
+  "split_sizes": {
+    "train": 6000,
+    "validation": 2000,
+    "test": 2000
+  },
+  "validation": {
+    "Logistic regression": {
+      "accuracy": 0.7075,
+      "balanced_accuracy": 0.6919947682659546,
+      "positive_f1": 0.48092280390417036,
+      "macro_f1": 0.6386514472009539,
+      "roc_auc": 0.7611293882480322,
+      "average_precision": 0.4552910879778903
+    },
+    "Decision tree": {
+      "accuracy": 0.7835,
+      "balanced_accuracy": 0.7543375424731357,
+      "positive_f1": 0.5700099304865939,
+      "macro_f1": 0.7126695158614058,
+      "roc_auc": 0.7826185199066555,
+      "average_precision": 0.5440216214221074
+    },
+    "Random forest": {
+      "accuracy": 0.8565,
+      "balanced_accuracy": 0.7708949319118811,
+      "positive_f1": 0.6398996235884568,
+      "macro_f1": 0.7751480634333168,
+      "roc_auc": 0.8537721080093961,
+      "average_precision": 0.6606600677535062
+    },
+    "KNN": {
+      "accuracy": 0.832,
+      "balanced_accuracy": 0.657649945785539,
+      "positive_f1": 0.46835443037974683,
+      "macro_f1": 0.6842959800354791,
+      "roc_auc": 0.7806265433384079,
+      "average_precision": 0.5019005236577448
+    },
+    "SVM": {
+      "accuracy": 0.79,
+      "balanced_accuracy": 0.7657349182772912,
+      "positive_f1": 0.5841584158415841,
+      "macro_f1": 0.7218450942084175,
+      "roc_auc": 0.8441847085914882,
+      "average_precision": 0.6451330592854383
+    }
+  },
+  "test": {
+    "accuracy": 0.8405,
+    "balanced_accuracy": 0.7471315691654674,
+    "positive_f1": 0.6007509386733417,
+    "macro_f1": 0.7505472906425128,
+    "roc_auc": 0.8484501450603146,
+    "average_precision": 0.6559100523943395
+  },
+  "prior_baseline_test": {
+    "accuracy": 0.7965,
+    "balanced_accuracy": 0.5,
+    "positive_f1": 0.0,
+    "macro_f1": 0.44336209295853046,
+    "roc_auc": 0.5,
+    "average_precision": 0.2035
+  },
+  "limits": [
+    "Historical EDA/dataset reuse; not a new independent benchmark.",
+    "Random row split does not establish temporal or external generalisation."
+  ],
+  "execution_seconds": 12.32,
+  "execution_scope": "Only two revised modelling cells; preceding EDA outputs historical."
+}

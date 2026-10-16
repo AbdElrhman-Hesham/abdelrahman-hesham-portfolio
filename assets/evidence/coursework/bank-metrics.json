@@ -1,0 +1,76 @@
+{
+  "protocol": "60/20/20 stratified; choose on validation, refit on80%, final candidate test once",
+  "historical_dataset": true,
+  "selection_metric": "positive_f1",
+  "selected_model": "Random forest",
+  "random_state": 42,
+  "split_sizes": {
+    "train": 24504,
+    "validation": 8168,
+    "test": 8169
+  },
+  "validation": {
+    "Logistic regression": {
+      "accuracy": 0.7593046033300686,
+      "balanced_accuracy": 0.692774218898838,
+      "positive_f1": 0.3641655886157827,
+      "macro_f1": 0.607860504969323,
+      "roc_auc": 0.7518207337111831,
+      "average_precision": 0.41218702147334013
+    },
+    "Decision tree": {
+      "accuracy": 0.8232125367286973,
+      "balanced_accuracy": 0.675274457039436,
+      "positive_f1": 0.38343296327924853,
+      "macro_f1": 0.6401229415510149,
+      "roc_auc": 0.699661765931606,
+      "average_precision": 0.3626618216825158
+    },
+    "Random forest": {
+      "accuracy": 0.8860186092066601,
+      "balanced_accuracy": 0.6703056534578015,
+      "positive_f1": 0.43814121907060954,
+      "macro_f1": 0.687358640055095,
+      "roc_auc": 0.7686818322537627,
+      "average_precision": 0.4092599609193665
+    },
+    "KNN": {
+      "accuracy": 0.8920176297747306,
+      "balanced_accuracy": 0.5891378119641837,
+      "positive_f1": 0.2932692307692308,
+      "macro_f1": 0.6174060894037035,
+      "roc_auc": 0.6694378542341397,
+      "average_precision": 0.26704059377182066
+    },
+    "SVM": {
+      "accuracy": 0.8263956904995103,
+      "balanced_accuracy": 0.7193459468470185,
+      "positive_f1": 0.43189102564102566,
+      "macro_f1": 0.6647171891210908,
+      "roc_auc": 0.7676615486283102,
+      "average_precision": 0.39347918257673964
+    }
+  },
+  "test": {
+    "accuracy": 0.8811360019586241,
+    "balanced_accuracy": 0.6562732899104239,
+    "positive_f1": 0.4111582777440873,
+    "macro_f1": 0.672527195240755,
+    "roc_auc": 0.7673029896804118,
+    "average_precision": 0.3933901671390926
+  },
+  "prior_baseline_test": {
+    "accuracy": 0.8863998041375933,
+    "balanced_accuracy": 0.5,
+    "positive_f1": 0.0,
+    "macro_f1": 0.4698896820246593,
+    "roc_auc": 0.5,
+    "average_precision": 0.11360019586240666
+  },
+  "limits": [
+    "Historical EDA/dataset reuse; not a new independent benchmark.",
+    "Random row split does not establish temporal or external generalisation."
+  ],
+  "execution_seconds": 62.11,
+  "execution_scope": "Only two revised modelling cells; preceding EDA outputs historical."
+}

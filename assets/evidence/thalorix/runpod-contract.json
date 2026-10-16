@@ -1,0 +1,49 @@
+{
+  "title": "Thalorix AI engine — RunPod worker request/response contract",
+  "derivedFrom": "serverless_handler.py handler/retrieval functions and orchestrator planning/storage/cache source; reviewed on 2026-10-16",
+  "status": "Derived from source code. Not captured from a live endpoint; no endpoint ID, key or private log is included, and no paid endpoint was called.",
+  "scope": "This endpoint is the outer boundary of Abdelrahman Hesham's AI component in the Thalorix university graduation project.",
+  "workerStartup": "At module start-up the worker prepares cache/volume paths and loads the models (load_all_models) before registering handler(event) with runpod.serverless.start. A cold worker therefore loads models before it answers any job.",
+  "request": {
+    "input": {
+      "message": { "type": "string", "required": "unless attachments are sent", "example": "build me a todo app" },
+      "session_id": { "type": "string", "default": "default-session", "constraint": "single directory identifier, at most128 characters; traversal/path separators are rejected" },
+      "output_preference": { "type": "string", "required": false },
+      "attachments": { "type": "array", "required": false, "note": "base64 content; text and PDF text are processed. No vision model is wired by default, so images fall back to a metadata note." },
+      "session_context": { "type": "array of {role, content}", "required": false, "note": "replayed into a fresh worker session for continuity" },
+      "retrieval_action": { "type": "string", "required": false, "note": "file/preview retrieval from the project volume. Inside handler(event) this branch runs before the model-ready check and reads stored artifacts without running inference; it does not make worker start-up model-free." }
+    }
+  },
+  "flow": [
+    "retrieval_action requests are dispatched first and return stored files or a preview (no inference)",
+    "Other requests are rejected with ok:false if the models are not ready",
+    "Restore or create the session; replay session_context if the worker is fresh",
+    "InputProcessor turns text and attachments into a UserIntent",
+    "handle_chat_message routes to chat, edit/debug or build using the conversation, architect, coder and repair roles",
+    "Build requests run the tiered generation pipeline synchronously inside the job and persist the project to the volume"
+  ],
+  "response": {
+    "success": { "ok": true, "result": { "reply": "string", "reply_type": "build_completed for builds, edit_completed / edit_failed for edits, other values for chat replies", "output_type": "artifact for builds", "session_id": "string", "project_manifest": "object or null", "retrieval": "paths to fetch files or a preview", "build_duration_seconds": "number (builds)" } },
+    "failure": { "ok": false, "error": "string", "reply_type": "build_failed | error" },
+    "errorDiagnostics": "Tracebacks are absent/null by default and remain in worker logs. EXPOSE_ERROR_TRACEBACKS=1 explicitly enables debugging excerpts; no deployed environment was inspected or changed."
+  },
+  "sourceModelDefaults": {
+    "conversation": "Qwen/Qwen2.5-7B-Instruct",
+    "architect": "Qwen/Qwen2.5-14B-Instruct",
+    "coder": "Qwen/Qwen2.5-Coder-32B-Instruct in this handler; Coder-14B in model_registry.py and model_loader.py",
+    "note": "Defaults only. ARCHITECT_MODEL, CODER_MODEL and CONVERSATION_MODEL environment settings can override them; the deployed configuration was not inspected."
+  },
+  "localSourceChecks": {
+    "scope": "Focused local source hardening, not deployed or certified as a secure execution sandbox.",
+    "changes": [
+      "request identifiers and generated planning names are checked before directory use",
+      "retrieved file paths are checked against the project directory",
+      "volume storage paths reject directory redirection",
+      "cached results are reused only for an existing project in the current session workdir"
+    ],
+    "handlerBoundaryTests": 12,
+    "planningStorageCacheTests": 8,
+    "pipelineHelperAssertions": 11,
+    "notRun": ["GPU/model inference", "live RunPod endpoint", "deployment", "latency or generation-success benchmark"]
+  }
+}

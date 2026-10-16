@@ -1,0 +1,92 @@
+{
+  "dataset_rows_after_checks": 2468,
+  "near_duplicates_removed": 13,
+  "split": {
+    "train": 1727,
+    "validation": 370,
+    "test": 371
+  },
+  "heading_shortcut": {
+    "heading_contains_label_share": 0.6572123176661264,
+    "validation_macro_f1_with_heading": 0.6571911573207315,
+    "validation_macro_f1_heading_removed": 0.6169047461913028
+  },
+  "stemming": {
+    "without": 0.6169047461913028,
+    "with": 0.5972121336877697,
+    "used": false
+  },
+  "validation_comparison": [
+    {
+      "model": "Linear SVM",
+      "validation_macro_f1": 0.6169,
+      "seconds": 7.5
+    },
+    {
+      "model": "Random Forest",
+      "validation_macro_f1": 0.5902,
+      "seconds": 8.0
+    },
+    {
+      "model": "Logistic Regression",
+      "validation_macro_f1": 0.5793,
+      "seconds": 16.8
+    },
+    {
+      "model": "Naive Bayes",
+      "validation_macro_f1": 0.4872,
+      "seconds": 7.3
+    }
+  ],
+  "selected_model": "Linear SVM",
+  "test": {
+    "macro_f1": 0.646103431634585,
+    "accuracy": 0.7008086253369272
+  },
+  "cv_5fold_macro_f1": {
+    "mean": 0.6035547542083449,
+    "std": 0.0172328444028402
+  },
+  "top_confusions": [
+    {
+      "actual": "APPAREL",
+      "predicted": "DESIGNER",
+      "cases": 3
+    },
+    {
+      "actual": "APPAREL",
+      "predicted": "SALES",
+      "cases": 3
+    },
+    {
+      "actual": "FINANCE",
+      "predicted": "ACCOUNTANT",
+      "cases": 3
+    },
+    {
+      "actual": "ARTS",
+      "predicted": "SALES",
+      "cases": 2
+    },
+    {
+      "actual": "AUTOMOBILE",
+      "predicted": "ADVOCATE",
+      "cases": 2
+    },
+    {
+      "actual": "CONSULTANT",
+      "predicted": "BUSINESS-DEVELOPMENT",
+      "cases": 2
+    },
+    {
+      "actual": "CONSULTANT",
+      "predicted": "ADVOCATE",
+      "cases": 2
+    },
+    {
+      "actual": "DIGITAL-MEDIA",
+      "predicted": "INFORMATION-TECHNOLOGY",
+      "cases": 2
+    }
+  ]
+}

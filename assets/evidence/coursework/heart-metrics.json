@@ -1,0 +1,60 @@
+{
+  "protocol": "60/20/20 stratified; choose on validation, refit on80%, final candidate test once",
+  "historical_dataset": true,
+  "selection_metric": "macro_f1",
+  "selected_model": "SVM",
+  "random_state": 42,
+  "split_sizes": {
+    "train": 550,
+    "validation": 184,
+    "test": 184
+  },
+  "validation": {
+    "Logistic regression": {
+      "accuracy": 0.8043478260869565,
+      "balanced_accuracy": 0.8067910090865614,
+      "positive_f1": 0.8163265306122449,
+      "macro_f1": 0.8035121025154248,
+      "roc_auc": 0.8976566236250598,
+      "average_precision": 0.9038051313372797
+    },
+    "KNN": {
+      "accuracy": 0.8369565217391305,
+      "balanced_accuracy": 0.8338115734098518,
+      "positive_f1": 0.8543689320388349,
+      "macro_f1": 0.8345918734268248,
+      "roc_auc": 0.8852223816355811,
+      "average_precision": 0.8645155768247923
+    },
+    "SVM": {
+      "accuracy": 0.842391304347826,
+      "balanced_accuracy": 0.8423003347680535,
+      "positive_f1": 0.8557213930348259,
+      "macro_f1": 0.8410343492120237,
+      "roc_auc": 0.9008847441415592,
+      "average_precision": 0.8893741530516281
+    }
+  },
+  "test": {
+    "accuracy": 0.8913043478260869,
+    "balanced_accuracy": 0.8888091822094691,
+    "positive_f1": 0.9029126213592233,
+    "macro_f1": 0.8897279156178832,
+    "roc_auc": 0.9485891917742707,
+    "average_precision": 0.9520587186032187
+  },
+  "prior_baseline_test": {
+    "accuracy": 0.5543478260869565,
+    "balanced_accuracy": 0.5,
+    "positive_f1": 0.7132867132867133,
+    "macro_f1": 0.35664335664335667,
+    "roc_auc": 0.5,
+    "average_precision": 0.5543478260869565
+  },
+  "limits": [
+    "Historical EDA/dataset reuse; not a new independent benchmark.",
+    "Random row split does not establish temporal or external generalisation."
+  ],
+  "execution_seconds": 9.01,
+  "execution_scope": "Only two revised modelling cells; preceding EDA outputs historical."
+}
