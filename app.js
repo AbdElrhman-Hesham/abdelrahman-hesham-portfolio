@@ -195,16 +195,22 @@ const projects = {
     ]
   },
   fitness: {
-    kicker: both('TRAINING INTERFACES · FIVE BUILDS'),
+    kicker: both('TRAINING INTERFACES · FOUR LIVE PROGRAMS'),
+    status: both('Choose a live program below. Home mobility is shown through local project evidence.'),
     title: both('Training interfaces'),
     lead: both('One approach applied to five workout and mobility builds: a clear week, readable exercise cards and Arabic/English layouts. They are grouped here as one project because they share the same structure.'),
     facts: facts([
       ['variants', '3bdo · 7-day program — Ahmed · gym plan with a nutrition guide — Doda · training with warm-up and stretching routines — FORM · push / pull / legs — Home mobility · a gentle seated routine (two builds of the same program).'],
       ['built', 'React, TypeScript and Vite; right-to-left and left-to-right layouts with a language switch, day navigation, expandable exercise cards and routine media.'],
       ['evidence', 'Source excerpts from four builds and project-generated home-mobility illustrations. Five installed variants pass TypeScript and production builds; 25 pure checks exercise optional storage and malformed progress recovery. The alternate mobility build lacks local dependencies and was not built.'],
-      ['privacy', 'Live personal plans with measurements and health notes are not linked. The links below open safe source excerpts and project-generated illustrations. Third-party exercise animations are not shown. Interface screenshots were not captured for this portfolio.']
+      ['delivery', '3bdo, Ahmed, Doda and FORM have existing Vercel deployments. Home mobility remains a local build; no public deployment is claimed for it.'],
+      ['privacy', 'The original source repositories remain private. This portfolio shows source excerpts and project-generated illustrations without reproducing personal measurements or health notes. Existing program sites open separately.']
     ]),
     links: [
+      { href: 'https://3bdo-plan.vercel.app', label: '3bdo — live program' },
+      { href: 'https://ahmed-gym-plan.vercel.app', label: 'Ahmed — live program' },
+      { href: 'https://doda-plan.vercel.app', label: 'Doda — live program' },
+      { href: 'https://ppl-workout-app.vercel.app', label: 'FORM — live program' },
       { href: 'assets/code/fitness.png', label: '3bdo — source evidence' },
       { href: 'assets/code/fitness-ahmed.png', label: 'Ahmed — source evidence' },
       { href: 'assets/code/fitness-doda.png', label: 'Doda — source evidence' },
@@ -296,7 +302,7 @@ Object.assign(copy.en, {
   talentAcc: 'Test accuracy', talentF1: 'Test macro-F1', talentNdcg: 'Ranking NDCG@10',
   statusLive: 'Live', statusPilot: 'In development', statusCapstone: 'AI course capstone', statusLocal: 'Local app', statusSample: 'Sample data', statusPrototype: 'Prototype', statusDesktop: 'Offline desktop',
   englishName: 'English Thinking Coach', deutscherPreviewNote: 'Drawn preview · A1 word practice',
-  fitnessTitle: 'Training interfaces', fitnessSummary: 'Workout-planning interfaces with clear sessions, exercise guidance and Arabic/English support. Private plan data is excluded.',
+  fitnessTitle: 'Training interfaces', fitnessSummary: 'Five workout and mobility builds with day navigation, exercise cards and Arabic/English layouts. Four programs are available live.',
   estimatorTitle: 'Quotation desktop app',
   labTitleA: 'Data', labTitleB: 'lab', labIntro: 'Data analysis, Power BI reports, model training and software experiments — each with saved results or source code.',
   legendLabel: 'Scope:',
@@ -341,7 +347,7 @@ Object.assign(copy.ar, {
   footerCity: 'القاهرة، مصر'
 });
 const statusRamp = ['capstone', 'course', 'prototype'];
-const selectedStatus = { star: 'live', deutscher: 'pilot', talent: 'capstone', interview: 'local', fitness: 'local', estimator: 'local', builder: 'university' };
+const selectedStatus = { star: 'live', deutscher: 'pilot', talent: 'capstone', interview: 'local', fitness: 'live', estimator: 'local', builder: 'university' };
 // Drawn previews shown on the "Results & interface" tab when a project has no captured screens; always labeled as drawings.
 const conceptualPreviews = { fitness: '.fitness-preview', builder: '.builder-preview', deutscher: '.deutscher-preview' };
 
@@ -586,7 +592,7 @@ function renderCase() {
   } else {
     const status = document.createElement('span');
     status.className = 'eyebrow';
-    status.textContent = project.status ? project.status[language] : currentProject === 'fitness' ? 'Personal plans stay private — no live links.' : copy[language].privateBuild;
+    status.textContent = project.status ? project.status[language] : copy[language].privateBuild;
     footer.append(status);
   }
   for (const item of project.links || []) {
