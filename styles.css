@@ -322,6 +322,7 @@ input { caret-color: var(--accent); }
 .catalog-body p { color: var(--muted); font-size: 15px; line-height: 1.55; }
 .catalog-tools { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--ink); letter-spacing: .1em; }
 .catalog-body .project-link { margin-top: auto; }
+.catalog-body .panel-actions { padding-top: 0; }
 .catalog-empty { grid-column: 1 / -1; display: grid; justify-items: center; gap: 18px; padding: 64px 24px; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--hair); text-align: center; }
 .catalog-empty h3 { font: 700 24px/1.3 var(--font-display); }
 .catalog-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 40px; }

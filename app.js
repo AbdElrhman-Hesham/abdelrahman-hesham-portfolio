@@ -397,6 +397,18 @@ function makeArrowIcon() {
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path'); path.setAttribute('d', 'M7 17 17 7M7 7h10v10'); svg.append(path); return svg;
 }
 
+// Direct card link to a verified public repository; publicSourceRepositories is the only list, so private or
+// unpublished projects get nothing. It carries no data-project, so the shared case-opening click handler ignores it.
+function createSourceLink(key) {
+  const href = Object.prototype.hasOwnProperty.call(publicSourceRepositories, key) ? publicSourceRepositories[key] : '';
+  if (!projects[key] || typeof href !== 'string' || !href.startsWith('https://github.com/AbdElrhman-Hesham/')) return null;
+  const link = makeElement('a', 'project-link quiet-link source-link');
+  link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', `Source on GitHub: ${projects[key].title[language]}`);
+  link.append(makeElement('span', '', 'Source on GitHub'), makeArrowIcon());
+  return link;
+}
+
 function createArtifactPreview(project) {
   const labels = catalogData.labels[language];
   const preview = makeElement('div', 'artifact-preview');
@@ -456,7 +468,10 @@ function renderCatalog() {
     action.lastElementChild.setAttribute('aria-hidden', 'true');
     const tools = makeElement('div', 'catalog-tools');
     item.tools.slice(0,3).forEach(tool => tools.append(makeElement('span', '', tool)));
-    body.append(tools, action); card.append(visual, body); grid.append(card);
+    const actions = makeElement('div', 'panel-actions');
+    const source = createSourceLink(item.id);
+    actions.append(action, ...(source ? [source] : []));
+    body.append(tools, actions); card.append(visual, body); grid.append(card);
   }
   if (!matches.length) {
     const empty = makeElement('div', 'catalog-empty');
@@ -795,6 +810,12 @@ rail.addEventListener('scroll', () => requestAnimationFrame(updateRailButtons), 
 window.addEventListener('resize', updateRailButtons);
 document.addEventListener('storymodechange', updateRailButtons);
 document.addEventListener('workscrollmodechange', updateRailButtons);
+
+// Selected-work cards with a verified public repository get a direct source link after their existing actions.
+rail.querySelectorAll('.panel-actions').forEach(actions => {
+  const source = createSourceLink(actions.querySelector('[data-project]')?.dataset.project);
+  if (source) actions.append(source);
+});
 
 renderLanguage();
 updateRailButtons();
